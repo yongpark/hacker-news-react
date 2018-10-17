@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from "axios";
 
 export default class Story extends Component {
   static propTypes = {
@@ -7,18 +8,23 @@ export default class Story extends Component {
   }
 
   state = {
-    id: this.props.id
+    id: this.props.id,
+    story: {},
   }
 
   componentDidMount() {
-    console.log('mounted')
+    let httpString = 'https://hacker-news.firebaseio.com/v0/item/' + this.state.id + '.json?print=pretty';
+    axios.get(httpString)
+    .then(res => {
+      const story = res.data;
+      this.setState({ story });
+    });
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
-        test story
+        {this.state.story.title}
       </div>
     )
   }
