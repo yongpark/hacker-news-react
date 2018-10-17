@@ -6,6 +6,7 @@ export default class Story extends Component {
   static propTypes = {
     story: PropTypes.object,
     ranking: PropTypes.number,
+    showCOmments: PropTypes.func,
   }
 
   state = {
@@ -24,13 +25,15 @@ export default class Story extends Component {
 
   render() {
     const { story } = this.state;
+    const { showComments } = this.props;
+    // console.log(story)
     return (
       <div className='story-container'>
-        <div className='story-title'>
+        <div className='story-title' onClick={() => showComments(story)}>
           {this.state.ranking + '. ' + story.title}
         </div>
         <div className='story-info'>
-          {story.score + ' by ' + story.author}
+          {story.points + ' by ' + story.author}
         </div>
       </div>
     )
