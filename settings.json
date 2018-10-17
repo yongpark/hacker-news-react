@@ -1,0 +1,14 @@
+{
+    "window.zoomLevel": 0,
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 2,
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "javascript.validate.enable": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "terminal.integrated.rendererType": "dom",
+    "javascript.updateImportsOnFileMove.enabled": "always"
+}

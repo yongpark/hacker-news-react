@@ -27,11 +27,11 @@ export default class HackerNews extends Component {
   }
 
   showComments(story) {
-    const fetchLink = 'http://hn.algolia.com/api/v1/search?tags=comment,story_' + story.objectID;
+    const fetchLink = 'http://hn.algolia.com/api/v1/items/' + story.objectID;
 
     axios.get(fetchLink)
       .then(res => {
-        const comments = res.data.hits;
+        const comments = res.data.children;
         this.setState({ comments });
       })
   }
