@@ -12,20 +12,20 @@ export default class HackerNews extends Component {
   // }
 
   state = {
-    newsIDs: [],
+    stories: [],
   }
 
   componentDidMount() {
-    axios.get(`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`)
+    axios.get(`http://hn.algolia.com/api/v1/search?tags=front_page`)
       .then(res => {
-        const newsIDs = res.data.slice(0, 10)
-        this.setState({ newsIDs });
+        const stories = res.data.hits.slice(0, 10)
+        this.setState({ stories });
     })
   }
 
   renderStories() {
-    return this.state.newsIDs.map( newsID =>  (
-      <Story id={newsID} ranking={this.state.newsIDs.indexOf(newsID) + 1}/>
+    return this.state.stories.map( story =>  (
+      <Story story={story} ranking={this.state.stories.indexOf(story) + 1}/>
     ))
   }
 
@@ -39,7 +39,7 @@ export default class HackerNews extends Component {
           </span>
         </div>
         <div className='story-list'>
-          { this.state.newsIDs ? this.renderStories() : <div>Loading</div>}
+          { this.state.stories ? this.renderStories() : <div>Loading</div>}
         </div>
       </div>
     )
