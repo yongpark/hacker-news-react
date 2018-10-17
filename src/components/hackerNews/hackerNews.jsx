@@ -25,9 +25,7 @@ export default class HackerNews extends Component {
 
   renderStories() {
     return this.state.newsIDs.map( newsID =>  (
-      <div className='story-container'>
-        <Story id={newsID} />
-      </div>
+      <Story id={newsID} ranking={this.state.newsIDs.indexOf(newsID) + 1}/>
     ))
   }
 
@@ -40,7 +38,9 @@ export default class HackerNews extends Component {
             Hacker News - Front Page
           </span>
         </div>
-        { this.state.newsIDs ? this.renderStories() : <div>Loading</div>}
+        <div className='story-list'>
+          { this.state.newsIDs ? this.renderStories() : <div>Loading</div>}
+        </div>
       </div>
     )
   }
