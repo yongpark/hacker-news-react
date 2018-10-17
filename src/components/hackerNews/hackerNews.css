@@ -1,0 +1,30 @@
+.hacker-news-container {
+  height: 80%;
+  width: 80%;
+  margin: auto;
+  background-color: #F6F5EF;
+  vertical-align: middle;
+}
+
+.hacker-news-header {
+  background-color: #FC6720;
+  height: 24px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  width: 100%;
+}
+
+.hacker-news-title {
+  display: block;
+  margin-top: -21px;
+  margin-left: 25px;
+}
+
+.ycomb-image {
+   border:1px white solid;
+   margin-top: 2px;
+   margin-left: 2px;
+   width: 18px;
+   height: 18px;
+
+}

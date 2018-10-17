@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import axios from "axios";
 
+import './hackerNews.css';
+import image from './y18.gif';
 import Story from '../story/story.jsx';
 
 export default class HackerNews extends Component {
@@ -32,6 +34,12 @@ export default class HackerNews extends Component {
   render() {
     return (
       <div className='hacker-news-container'>
+        <div className='hacker-news-header'>
+          <img src={image} className='ycomb-image' alt='ycomb'/>
+          <span className='hacker-news-title'>
+            Hacker News - Front Page
+          </span>
+        </div>
         { this.state.newsIDs ? this.renderStories() : <div>Loading</div>}
       </div>
     )
